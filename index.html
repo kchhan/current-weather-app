@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="storage.js"></script>
+    <script defer src="weather.js"></script>
+    <script defer src="ui.js"></script>
+    <script defer src="app.js"></script>
+    <title>Weather App</title>
+  </head>
+  <body>
+    <main id="main-container">
+      <form id="form">
+        <input type="text" id="city-input" placeholder="Change Location" />
+      </form>
+      <div id="container">
+        <h1 id="title">Current Weather</h1>
+        <h2><span id="w-city"></span><span id="w-country"></span></h2>
+        <h3 id="date"></h3>
+        <img id="w-icon" />
+        <h3 id="w-temp"></h3>
+        <h4 id="w-desc"></h4>
+        <h4 id="w-wind"></h4>
+        <h4 id="w-humidity"></h4>
+        <h4 id="w-sunrise"></h4>
+        <h4 id="w-sunset"></h4>
+      </div>
+    </main>
+    <footer id="footer"> Programmed by: <a href="https://www.github.com/kchhan" target="_blank">Kevin Chhan</a></footer>
+  </body>
+</html>
