@@ -16,7 +16,7 @@ class UI {
     this.city.textContent = weather.name;
     this.country.textContent = `, ${weather.sys.country}`;
     this.date.textContent = '';
-    this.icon.src = `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
+    this.icon.src = `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
     this.temp.textContent = `${Math.round(weather.main.temp)} F deg`;
     this.description.textContent = `Description: ${weather.weather[0].description}`;
     this.wind.textContent = `Wind: ${weather.wind.speed}mph`;
