@@ -34,7 +34,7 @@ class UI {
 		/**
 		 * first section
 		 */
-		this.cityName.textContent = data.name;
+		this.cityName.textContent = data.city;
 	}
 
 	paintWeather(data) {

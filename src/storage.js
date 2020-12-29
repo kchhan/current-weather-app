@@ -1,20 +1,19 @@
 class Storage {
 	constructor() {
+		this.city;
 		this.latitude;
 		this.longitude;
-		this.city;
-		this.defaultCity = 'London';
 	}
 
 	getLocationData() {
 		if (localStorage.getItem('city') === null) {
-			this.city = this.defaultCity;
+			this.city = 'London';
 			this.latitude = 51.51;
 			this.longitude = -0.13;
 		} else {
 			this.city = localStorage.getItem('city');
 			this.latitude = localStorage.getItem('latitude');
-			this.longitude = localStorage.getItem('longitdue');
+			this.longitude = localStorage.getItem('longitude');
 		}
 
 		return {
@@ -24,9 +23,15 @@ class Storage {
 		};
 	}
 
-	setLocationData(city) {
+	setCity(city) {
 		localStorage.setItem('city', city);
-		localStorage.setItem('latitude', this.latitude);
-		localStorage.setItem('longitude', this.longitude);
+	}
+
+	setLatitude(latitude) {
+		localStorage.setItem('latitude', latitude);
+	}
+
+	setLongitude(longitude) {
+		localStorage.setItem('longitude', longitude);
 	}
 }

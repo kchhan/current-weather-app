@@ -1,15 +1,34 @@
-// Init storage
+/**
+ * Initialize Local Storage
+ */
 const storage = new Storage();
 
-// Get stored location data
+/**
+ * Get Local Storage data or set default values
+ * @return @object
+ */
 const weatherLocation = storage.getLocationData();
 
-// Init weather object
+/**
+ * Get latitude and longitude from city
+ * @param @string city
+ * @return @object latitude and longitude @numbers city @string
+ */
+const coordinates = new Location(weatherLocation.city);
+
+/**
+ * Get weather data from fetch api call
+ * @params @numbers latitude and longitude
+ * @return @json weather data
+ */
 const weather = new Weather(
-	weatherLocation.city,
+	weatherLocation.latitude,
+	weatherLocation.longitude
 );
 
-// Init UI object
+/**
+ * Initialize the front end for application
+ */
 const ui = new UI();
 
 // Get Location on DOM load
@@ -19,14 +38,19 @@ document.addEventListener('DOMContentLoaded', getLocation);
 document.addEventListener('DOMContentLoaded', getWeather);
 
 // Change location event
-document.querySelector('#form').addEventListener('submit', (e) => {
-	e.preventDefault();
-	changeCity();
-});
+document.querySelector('#form').addEventListener('submit', changeCity);
 
 function getLocation() {
-	weather
-		.getLocation()
+	// Fetch call returns a Promise
+	const promise = coordinates.getLocation();
+
+	promise
+		.then((results) => storage.setLatitude(results.latitude))
+		.catch((err) => console.log(err));
+	promise
+		.then((results) => storage.setLongitude(results.longitude))
+		.catch((err) => console.log(err));
+	promise
 		.then((results) => ui.paintLocation(results))
 		.catch((err) => console.log(err));
 }
@@ -44,11 +68,8 @@ function changeCity() {
 	const city = input.value;
 
 	if (city !== '') {
-		// Change location
-		weather.changeLocation(city);
-		// Set location in ls
-		storage.setLocationData(city);
-		// Get and display weather
+		coordinates.changeLocation(city);
+		storage.setCity(city);
 		getLocation();
 		getWeather();
 	}
