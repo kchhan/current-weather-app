@@ -1,3 +1,12 @@
+:root {
+	--body-background: #1e3a8a;
+	--main-container-background: #BFDBFE;
+	--white: #ffffff;
+	--black: #000000;
+	--green: #10b981;
+	--gray: #808080;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -5,11 +14,17 @@
 	font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
+body {
+	background-color: var(--body-background);
+}
+
 /* Main Container Styling */
 #main-container {
 	margin: 20px auto 0 auto;
 	max-width: 1000px;
-	border: 1px solid black;
+	background-color: var(--main-container-background);
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px black;
 }
 
 /* Form Styling */
@@ -32,6 +47,9 @@
 	font-size: 1rem;
 	font-weight: bold;
 	border-radius: 15px;
+
+	color: var(--white);
+	background-color: var(--green);
 }
 
 /* Weather Container Styling */
@@ -121,6 +139,7 @@
 
 .low-temp-cell {
 	margin-left: 15px;
+	color: var(--gray);
 }
 
 /* Fourth Section */
@@ -147,4 +166,8 @@ h4 {
 /* Footer */
 #footer {
 	text-align: center;
+}
+
+#github {
+	color: yellow;
 }
