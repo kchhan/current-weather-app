@@ -33,13 +33,15 @@
 			</form>
 			<section id="container">
 				<!-- first section -->
-				<div>
+				<div id="first-section">
 					<h1 id="city-name"></h1>
 					<p id="city-status">Clear</p>
-					<h3><span id="city-current-weather"></span>&deg;</h3>
-					<div>
-						<p>H:<span id="today-high"></span>&deg;</p>
-						<p>L:<span id="today-low"></span>&deg;</p>
+					<h3 id="city-weather">
+						<span id="city-current-weather"></span>&deg;
+					</h3>
+					<div id="city-high-low">
+						<p id="city-high">H:<span id="today-high"></span>&deg;</p>
+						<p id="city-low">L:<span id="today-low"></span>&deg;</p>
 					</div>
 				</div>
 
@@ -50,34 +52,32 @@
 				<div id="third-section"></div>
 
 				<!-- fourth section -->
-				<div>
-					<div>
-						<div>
-							<small>Sunrise</small>
+				<div id="fourth-section">
+					<div class="detail-group">
+						<div class="detail-subgroup">
+							<h4>Sunrise</h4>
 							<p id="sunrise"></p>
 						</div>
-						<div>
-							<small>Sunset</small>
-							<p id="sunset"></p>
-						</div>
-					</div>
-					<div>
-						<div>
-							<small>Wind</small>
+						<div class="detail-subgroup">
+							<h4>Wind</h4>
 							<p id="wind"></p>
 						</div>
-						<div>
-							<small>Pressure</small>
-							<p id="pressure"></p>
-						</div>
-					</div>
-					<div>
-						<div>
-							<small>Humidity</small>
+						<div class="detail-subgroup">
+							<h4>Humidity</h4>
 							<p id="humidity"></p>
 						</div>
-						<div>
-							<small>UV Index</small>
+					</div>
+					<div class="detail-group">
+						<div class="detail-subgroup">
+							<h4>Sunset</h4>
+							<p id="sunset"></p>
+						</div>
+						<div class="detail-subgroup">
+							<h4>Pressure</h4>
+							<p id="pressure"></p>
+						</div>
+						<div class="detail-subgroup">
+							<h4>UV Index</h4>
 							<p id="uvi"></p>
 						</div>
 					</div>
@@ -85,8 +85,12 @@
 			</section>
 		</main>
 		<footer id="footer">
-			<a href="https://www.github.com/kchhan" target="_blank"
-				><i class="fab fa-github-square"></i
+			<a
+				href="https://www.github.com/kchhan"
+				rel="noreferrer"
+				target="_blank"
+				class="github"
+				><i class="fab fa-github-square fa-3x"></i
 			></a>
 		</footer>
 	</body>

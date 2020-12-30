@@ -7,9 +7,9 @@ class Storage {
 
 	getLocationData() {
 		if (localStorage.getItem('city') === null) {
-			this.city = 'London';
-			this.latitude = 51.51;
-			this.longitude = -0.13;
+			this.city = 'San Francisco';
+			this.latitude = 37.77;
+			this.longitude = -122.42;
 		} else {
 			this.city = localStorage.getItem('city');
 			this.latitude = localStorage.getItem('latitude');

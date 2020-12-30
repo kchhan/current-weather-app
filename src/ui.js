@@ -59,15 +59,24 @@ class UI {
 			let hour = new Date(data.hourly[i].dt * 1000).getHours();
 			let icon = document.createElement('img');
 			icon.src = `https://openweathermap.org/img/wn/${data.hourly[i].weather[0].icon}.png`;
-			let temp = Math.round(data.hourly[i].temp);
+			icon.alt = "icon"
+			let temp = Math.round(data.hourly[i].temp) + '\xB0';
+
+			icon.classList.add('icon');
 
 			hourCell.textContent = hour;
 			tempCell.textContent = temp;
 			iconCell.appendChild(icon);
 
+			hourCell.classList.add('hour-cell');
+			tempCell.classList.add('temp-cell');
+			iconCell.classList.add('icon-cell');
+
 			cell.appendChild(hourCell);
 			cell.appendChild(iconCell);
 			cell.appendChild(tempCell);
+
+			cell.classList.add('hourly-cell');
 
 			this.secondSection.appendChild(cell);
 		}
@@ -110,17 +119,28 @@ class UI {
 
 			let icon = document.createElement('img');
 			icon.src = `https://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}.png`;
+			icon.alt = "icon"
 
 			highTempCell.textContent = Math.round(data.daily[i].temp.max);
 			lowTempCell.textContent = Math.round(data.daily[i].temp.min);
+
+			icon.classList.add('icon');
 
 			iconCell.appendChild(icon);
 			tempCell.appendChild(highTempCell);
 			tempCell.appendChild(lowTempCell);
 
+			iconCell.classList.add('icon-cell');
+			dayCell.classList.add('day-cell');
+			highTempCell.classList.add('high-temp-cell');
+			lowTempCell.classList.add('low-temp-cell');
+			tempCell.classList.add('daily-temp-cell');
+
 			cell.appendChild(dayCell);
 			cell.appendChild(iconCell);
 			cell.appendChild(tempCell);
+
+			cell.classList.add('daily-cell');
 
 			this.thirdSection.appendChild(cell);
 		}
@@ -132,7 +152,7 @@ class UI {
 			new Date(data.daily[0].sunrise * 1000).toLocaleTimeString() + ' PST';
 		this.sunset.textContent =
 			new Date(data.daily[0].sunset * 1000).toLocaleTimeString() + ' PST';
-		this.humidity.textContent = data.daily[0].humidity;
+		this.humidity.textContent = data.daily[0].humidity + "%";
 		this.wind.textContent = data.daily[0].wind_speed + ' mph';
 		this.pressure.textContent = data.daily[0].pressure + ' inHg';
 		this.uvi.textContent = data.daily[0].uvi;
